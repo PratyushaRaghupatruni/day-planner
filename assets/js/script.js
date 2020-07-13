@@ -14,16 +14,17 @@ function updateTime() {
     var currentHour = moment().format("HA");
     console.log(currentHour);
     for (i = 0; i < timeOfday.length; i++) {
-        console.log("forloop");
-        if (parseInt(timeOfday[i]) > currentHour) {
-            $("#" + timeOfday[i]).attr("style", " background-color: #77dd77");
-            console.log(timeOfday[i]);
-        }
-        else if (parseInt(timeOfday[i]) < currentHour) {
+        timeOfday[i]=parseInt(timeOfday[i]);
+        console.log(timeOfday[i]);
+       if (timeOfday[i] > currentHour) {
+           $("#" + timeOfday[i]).attr("style", " background-color: #77dd77");
+           console.log(timeOfday[i]);
+       }
+        else if (timeOfday[i] < currentHour) {
             $("#" + timeOfday[i]).attr("style", "background-color: #d3d3d3");
             console.log($timeOfday[i]);
         }
-        else if (parseInt(timeOfday[i]) === currentHour) {
+        else if (timeOfday[i] === currentHour) {
             $("#" + timeOfday[i]).attr("style", "background-color: #ff696");
             console.log(timeOfday[i]);
 
