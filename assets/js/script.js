@@ -11,27 +11,26 @@ var timeOfday = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
 function updateBackground() {
     var currentHour = moment().format("H");
     console.log(currentHour);
+    currentHour=parseInt(currentHour);
    
     for (i = 0; i < timeOfday.length; i++) {
         timeOfday[i] = parseInt(timeOfday[i]);
         if (timeOfday[i] > currentHour) {
-            $("#" + timeOfday[i]).attr("style", " background-color: #77dd77");
-        
+            $("#" + timeOfday[i]).addClass("future");
         }
         if (timeOfday[i] < currentHour) {
-            $("#" + timeOfday[i]).attr("style", "background-color: #d3d3d3")
+            $("#" + timeOfday[i]).addClass("past");
         }
         if (timeOfday[i] === currentHour) {
-            $("#" + timeOfday[i]).attr("style", "background-color: #ff696");
+            $("#" + timeOfday[i]).addClass("present");
         }
     }
 }
 
-
 $(".saveBtn").on("click", function () {
     var  userText = $(this).parent().children("textarea").val();
     console.log(userText);
-   var userTime = $(this).parent().attr("id");
+    var userTime = $(this).parent().attr("id");
     console.log(userTime);
 
     var currentEvent = {
@@ -39,17 +38,15 @@ $(".saveBtn").on("click", function () {
         eventTime: userTime,
     }
     if(userText===""){
-        alert("enter some Event");
+        alert("Enter some Event");
     }
     else if(userText!==""){
-    localStorage.setItem(userTime, userText);    
-  
+    localStorage.setItem(userTime, userText);
     }
 });
 
 displayDate();
 updateBackground();
-
 $("#9AM .description").val(localStorage.getItem("9AM"));
 $("#10AM .description").val(localStorage.getItem("10AM"));
 $("#11AM .description").val(localStorage.getItem("11AM"));
