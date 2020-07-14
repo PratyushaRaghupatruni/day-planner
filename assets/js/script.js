@@ -9,7 +9,7 @@ function displayDate() {
 }
 
 var timeOfday = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
-function updateTime() {
+function updateBackground() {
     var currentHour = moment().format("H");
     console.log(currentHour);
     for (i = 0; i < timeOfday.length; i++) {
@@ -26,31 +26,42 @@ function updateTime() {
         }
     }
 }
-var listOfevents = [];
+
+
+var dayEvents=[];
+
 $(".saveBtn").on("click", function () {
     var userText = $(this).parent().children("textarea").val();
     console.log(userText);
     var userTime = $(this).parent().attr("id");
     console.log(userTime);
 
-    var dayOfevents = {
+    var updateinfo;
+
+    var currentEvent = {
         eventText: userText,
         eventTime: userTime,
     }
+console.log(currentEvent);
+dayEvents = JSON.parse(localStorage.getItem("dayEvents"));
 
     if (userText==="") {
         alert("enter the list of events");
+        return false;   
     }
-    else if(userText!==""){
-     localStorage.setItem("eventDetails",JSON.stringify(dayOfevents));  
-     var details = JSON.parse(localStorage.getItem("eventDetails"));   
+    else if(userText!==""){  
+        if(dayEvents===[]){ 
+            dayEvents=[currentEvent];
+        }
+        else{
+            dayEvents.push(currentEvent);
+        }
     }
-
-    
-
-    
-
-
+ 
+    localStorage.setItem("dayEvents",JSON.stringify(dayEvents));    
+    loadEvents();
 });
+
+
 displayDate();
-updateTime();
+updateBackground();
