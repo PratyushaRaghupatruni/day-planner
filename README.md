@@ -22,6 +22,8 @@ I used [Moment.js](https://momentjs.com/) library to work with date and time.
 
 ##Deployed link: https://pratyusharaghupatruni.github.io/day-planner/
 
+![alt text]
+
 ## User Story
 
 AS AN employee with a busy schedule
