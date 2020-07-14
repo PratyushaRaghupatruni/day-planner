@@ -1,9 +1,9 @@
 
 //to fetch the date month and year 
 function displayDate() {
-    var date = moment().format("dddd MMMM Mo YYYY");
-    console.log(moment().format("dddd MMMM Mo YYYY"));
-    $("#currentDay").append(date);
+    var date = moment().format("dddd MMMM Do YYYY");
+    console.log(moment().format("dddd MMMM Do YYYY"));
+    $("#currentDay").text(date);
     $("#currentDay").addClass("font-weight-bold text-info");
 }
 var timeOfday = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
