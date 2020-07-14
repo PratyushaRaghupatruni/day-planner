@@ -22,7 +22,7 @@ I used [Moment.js](https://momentjs.com/) library to work with date and time.
 
 ##Deployed link: https://pratyusharaghupatruni.github.io/day-planner/
 
-![alt text]
+![alt text](https://github.com/PratyushaRaghupatruni/day-planner/blob/master/assets/Screen%20Shot%202020-07-14%20at%203.41.46%20PM.png)
 
 ## User Story
 
