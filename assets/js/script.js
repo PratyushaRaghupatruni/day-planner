@@ -45,17 +45,15 @@ $(".saveBtn").on("click", function () {
         eventText: userText,
         eventTime: userTime,
     }
-    if(userText===""){
-        alert("Enter some Event");
-    }
-    else if(userText!==""){
-        //if usertext is not emmpty stores the item in local storage
+  //if usertext is not emmpty stores the item in local storage
     localStorage.setItem(userTime, userText);
-    }
+    
 });
+
 //calling the functions
 displayDate();
 updateBackground();
+
 //getting all the events which are stored
 $("#9AM .description").val(localStorage.getItem("9AM"));
 $("#10AM .description").val(localStorage.getItem("10AM"));
@@ -65,5 +63,4 @@ $("#1PM .description").val(localStorage.getItem("1PM"));
 $("#2PM .description").val(localStorage.getItem("2PM"));
 $("#3PM .description").val(localStorage.getItem("3PM"));
 $("#4PM .description").val(localStorage.getItem("4PM"));
-$("#5PM .description").val(localStorage.getItem("5PM"));
 
